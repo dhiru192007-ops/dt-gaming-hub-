@@ -1,115 +1,229 @@
 
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DT GAMING HUB</title>
 <style>
+:root{--bg:#080b14;--panel:#111827;--gold:#ffd447;--cyan:#27e8ff}
 *{box-sizing:border-box}
-body{margin:0;background:#070b16;color:white;font-family:Arial,sans-serif}
-header{text-align:center;padding:25px 10px;background:#111b30;border-bottom:2px solid #00eaff}
-h1{color:#00eaff;text-shadow:0 0 12px #00aaff}
-nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;background:#101827;padding:14px}
-nav a{background:#26344c;padding:10px;color:white;text-decoration:none;border-radius:7px}
-.hero{text-align:center;padding:45px 15px;background:linear-gradient(140deg,#132751,#123b42)}
-.hero h2{font-size:28px}
-.cyan{color:#00eaff}
-button,.btn{background:#00eaff;color:#07101c;border:0;padding:12px 17px;border-radius:7px;font-weight:bold;cursor:pointer;text-decoration:none}
-section{padding:24px 15px}
-section h2{color:#00eaff}
-.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
-.card{background:#141f33;border:1px solid #293d59;border-radius:12px;padding:20px 12px;text-align:center}
+body{margin:0;background:var(--bg);color:#f5f7ff;font-family:Arial,sans-serif}
+header{padding:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:#101522;border-bottom:1px solid #26334b}
+.logo{font-weight:900;font-size:23px;color:var(--gold)}
+nav{display:flex;gap:12px;flex-wrap:wrap}
+a{color:var(--cyan);text-decoration:none}
+button{cursor:pointer;border:0;border-radius:9px;padding:11px 15px;font-weight:bold;background:var(--gold);color:#151515}
+button.secondary{background:#26334b;color:white}
+main{max-width:1000px;margin:auto;padding:18px}
+.hero{padding:35px 20px;border-radius:20px;background:linear-gradient(135deg,#171e36,#172f45,#321c46);border:1px solid #344663}
+h1{font-size:clamp(32px,8vw,58px);margin:8px 0;color:var(--gold)}
+h2{color:var(--cyan)}
+.muted{color:#b7c2d7;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.card{padding:18px;background:var(--panel);border:1px solid #28364e;border-radius:15px}
 .emoji{font-size:42px}
-.panel{max-width:420px;margin:auto;background:#141f33;padding:20px;border-radius:12px}
-input{width:100%;padding:12px;margin:10px 0;background:#080d18;color:white;border:1px solid #455875;border-radius:7px}
-footer{text-align:center;background:#101827;padding:22px;color:#bbc6d8}
-#message,#gameMessage{color:#00eaff}
+input{width:100%;padding:12px;margin:7px 0;border-radius:8px;border:1px solid #43516b;background:#080d18;color:white}
+.gamebox{margin-top:12px;padding:14px;border-radius:12px;background:#080d18}
+#board{display:grid;grid-template-columns:repeat(3,70px);gap:6px;margin:12px 0}
+.cell{height:70px;font-size:26px;background:#202c42;color:white}
+footer{text-align:center;padding:25px;color:#9eabc2}
 </style>
 </head>
 <body>
 <header>
-<h1>🎮 DT GAMING HUB</h1>
-<p>PLAY • ENJOY • LEVEL UP</p>
+  <div class="logo">👑 DT GAMING HUB</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+    <a href="#account">Login</a>
+  </nav>
+  <button onclick="shareSite()">↗ Share</button>
 </header>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#games">Games</a>
-<a href="#login">Login</a>
-<a href="#leaderboard">Leaderboard</a>
-</nav>
-
-<div class="hero" id="home">
-<h2>WELCOME TO <span class="cyan">DT GAMING HUB</span></h2>
-<p>तुझं स्वतःचं गेमिंग विश्व!</p>
-<a class="btn" href="#games">EXPLORE GAMES 🎮</a>
-</div>
+<main>
+<section class="hero" id="home">
+  <p>🎮 YOUR GAMING DESTINATION</p>
+  <h1>PLAY. COMPETE.<br>WIN!</h1>
+  <p class="muted">Welcome to DT GAMING HUB — your game, your challenge!</p>
+  <button onclick="document.querySelector('#games').scrollIntoView({behavior:'smooth'})">▶ PLAY NOW</button>
+</section>
 
 <section id="games">
-<h2>🔥 GAME ZONE</h2>
-<div class="games">
-<div class="card">
-<div class="emoji">🔫</div>
-<h3>Action Zone</h3>
-<p>Action games</p>
-<button onclick="comingSoon()">Play Now</button>
-</div>
-<div class="card">
-<div class="emoji">🏎️</div>
-<h3>Racing Zone</h3>
-<p>Racing games</p>
-<button onclick="comingSoon()">Play Now</button>
-</div>
-<div class="card">
-<div class="emoji">🧩</div>
-<h3>Puzzle Zone</h3>
-<p>Brain games</p>
-<button onclick="comingSoon()">Play Now</button>
-</div>
-</div>
-<p id="gameMessage"></p>
-</section>
-
-<section id="login">
-<h2>👤 PLAYER LOGIN</h2>
-<div class="panel">
-<p>तुझं नाव टाक.</p>
-<input id="playerName" placeholder="Enter your name">
-<button onclick="loginPlayer()">Continue</button>
-<p id="message"></p>
+<h2>🔥 MINI GAMES</h2>
+<p class="muted">Choose a game and start playing.</p>
+<div class="grid">
+  <div class="card">
+    <div class="emoji">⚡</div><h3>Reaction Test</h3>
+    <p class="muted">Test how fast you react.</p>
+    <button onclick="startReaction()">Start Reaction Test</button>
+    <div class="gamebox" id="reaction">Ready? Press Start!</div>
+  </div>
+  <div class="card">
+    <div class="emoji">⭕</div><h3>Tic Tac Toe</h3>
+    <p class="muted">Play X against O on this device.</p>
+    <button onclick="resetTic()">New Game</button>
+    <div id="board"></div>
+    <p id="ticStatus" class="muted">X's turn</p>
+  </div>
+  <div class="card">
+    <div class="emoji">🔢</div><h3>Number Challenge</h3>
+    <p class="muted">Guess a number between 1 and 10.</p>
+    <input id="guess" type="number" min="1" max="10" placeholder="Enter your guess">
+    <button onclick="checkGuess()">Check</button>
+    <p id="guessResult" class="muted"></p>
+  </div>
 </div>
 </section>
 
-<section id="leaderboard">
-<h2>🏆 LEADERBOARD</h2>
-<div class="panel">
-<p>🥇 DT Player — 1000 XP</p>
-<p>🥈 Pro Gamer — 800 XP</p>
-<p>🥉 Master Player — 600 XP</p>
-<p>ही डेमो यादी आहे.</p>
-</div>
+<section class="card" id="account">
+<h2>🔐 Login / Register Demo</h2>
+<p class="muted">Create a demo profile on this device.</p>
+<input id="username" maxlength="24" placeholder="Choose a username">
+<input id="password" type="password" placeholder="Choose a password">
+<button onclick="register()">Register</button>
+<button class="secondary" onclick="login()">Login</button>
+<button class="secondary" onclick="logout()">Logout</button>
+<p id="accountStatus" class="muted">You are not logged in.</p>
+<p class="muted">Demo only: this account is stored in this browser, not a secure online database.</p>
 </section>
 
-<footer>
-<p>© 2026 DT GAMING HUB</p>
-<p>Made with ❤️ by DT</p>
-</footer>
+<section class="card">
+<h2>🏆 Leaderboard</h2>
+<p class="muted">Demo leaderboard — scores are not shared between players.</p>
+<ol><li>DT Player — Keep playing!</li><li>Gaming Star — Challenge yourself!</li><li>New Champion — That could be you!</li></ol>
+</section>
+
+<section class="card">
+<h2>🌐 Share DT GAMING HUB</h2>
+<p class="muted">Invite your friends to try the mini games.</p>
+<button onclick="shareSite()">Share Website Link</button>
+</section>
+</main>
+
+<footer>© 2026 DT GAMING HUB · Play Safe · Game On</footer>
 
 <script>
-function comingSoon(){
-document.getElementById("gameMessage").textContent =
-"🎮 हे गेम लवकरच उपलब्ध होतील!";
+function shareSite(){
+  const url=location.href;
+  if(navigator.share){
+    navigator.share({title:"DT GAMING HUB",text:"Play mini games on DT GAMING HUB!",url:url}).catch(()=>{});
+  }else if(navigator.clipboard && location.protocol==="https:"){
+    navigator.clipboard.writeText(url).then(()=>alert("Website link copied! Share it with your friends.")).catch(()=>prompt("Copy your website link:",url));
+  }else{
+    prompt("Copy your website link:",url);
+  }
 }
-function loginPlayer(){
-const name=document.getElementById("playerName").value.trim();
-const message=document.getElementById("message");
-if(!name){
-message.textContent="कृपया तुझं नाव टाक!";
-return;
+
+function startReaction(){
+  const box=document.getElementById("reaction");
+  box.textContent="Wait for GREEN...";
+  box.style.background="#080d18";
+  let finished=false, ready=false, start=0;
+  let delay=1500+Math.random()*2500;
+  const btn=document.querySelector('[onclick="startReaction()"]');
+  btn.disabled=true;
+  const handler=()=>{
+    if(!ready){
+      finished=true;clearTimeout(timer);
+      box.textContent="Too early! Try again.";
+      box.style.background="#702a38";
+      btn.disabled=false;
+    }else if(!finished){
+      finished=true;
+      box.textContent="Your time: "+(Date.now()-start)+" ms";
+      box.style.background="#124d32";
+      btn.disabled=false;
+    }
+  };
+  box.onclick=handler;
+  const timer=setTimeout(()=>{
+    if(!finished){
+      ready=true;start=Date.now();
+      box.textContent="TAP NOW!";
+      box.style.background="#087d48";
+    }
+  },delay);
 }
-message.textContent="Welcome to DT GAMING HUB, "+name+"! 🎮";
+
+let cells=Array(9).fill("");
+let turn="X", ticOver=false;
+function resetTic(){
+  cells=Array(9).fill("");turn="X";ticOver=false;
+  document.getElementById("ticStatus").textContent="X's turn";
+  drawBoard();
 }
+function drawBoard(){
+  const board=document.getElementById("board");
+  board.innerHTML="";
+  cells.forEach((v,i)=>{
+    const b=document.createElement("button");
+    b.className="cell";b.textContent=v;
+    b.onclick=()=>moveTic(i);
+    board.appendChild(b);
+  });
+}
+function moveTic(i){
+  if(cells[i]||ticOver)return;
+  cells[i]=turn;
+  const wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  drawBoard();
+  if(wins.some(w=>w.every(n=>cells[n]===turn))){
+    document.getElementById("ticStatus").textContent=turn+" wins!";
+    ticOver=true;
+  }else if(cells.every(Boolean)){
+    document.getElementById("ticStatus").textContent="It's a draw!";
+    ticOver=true;
+  }else{
+    turn=turn==="X"?"O":"X";
+    document.getElementById("ticStatus").textContent=turn+"'s turn";
+  }
+}
+resetTic();
+
+function checkGuess(){
+  const field=document.getElementById("guess");
+  const n=Number(field.value);
+  if(!Number.isInteger(n)||n<1||n>10){
+    document.getElementById("guessResult").textContent="Enter a whole number from 1 to 10.";
+    return;
+  }
+  const answer=Math.floor(Math.random()*10)+1;
+  document.getElementById("guessResult").textContent=
+    n===answer?"🎉 Correct! You guessed it!":"Not this time! The number was "+answer+". Try again!";
+}
+
+function register(){
+  const u=document.getElementById("username").value.trim();
+  const p=document.getElementById("password").value;
+  if(u.length<3||p.length<4){
+    alert("Use a username of 3+ characters and password of 4+ characters.");
+    return;
+  }
+  const users=JSON.parse(localStorage.getItem("dtDemoUsers")||"{}");
+  if(users[u]){alert("Username already exists. Try Login.");return;}
+  users[u]=p;
+  localStorage.setItem("dtDemoUsers",JSON.stringify(users));
+  localStorage.setItem("dtDemoSession",u);
+  updateAccount();
+}
+function login(){
+  const u=document.getElementById("username").value.trim();
+  const p=document.getElementById("password").value;
+  const users=JSON.parse(localStorage.getItem("dtDemoUsers")||"{}");
+  if(users[u]===p){
+    localStorage.setItem("dtDemoSession",u);updateAccount();
+  }else alert("Account not found or password is incorrect.");
+}
+function logout(){
+  localStorage.removeItem("dtDemoSession");updateAccount();
+}
+function updateAccount(){
+  const u=localStorage.getItem("dtDemoSession");
+  document.getElementById("accountStatus").textContent=
+    u?"Welcome, "+u+"! You are logged in on this device.":"You are not logged in.";
+}
+updateAccount();
 </script>
 </body>
   </html>
